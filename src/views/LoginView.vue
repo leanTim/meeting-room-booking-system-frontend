@@ -50,7 +50,7 @@ const onSubmit = async function () {
   const res = await login(LoginUser.username, LoginUser.password)
   
   const {code, message, data} = res.data
-  
+
   if(res.status ===201 || res.status === 200) {
     ElMessage({
       type: 'success',
