@@ -19,8 +19,8 @@
       </el-form-item>
       <el-form-item>
         <div class="links">
-          <a href="">创建账号</a>
-          <a href="">忘记密码</a>
+          <router-link to="/register">创建账号</router-link>
+          <router-link to="/update_password">忘记密码</router-link>
         </div>
       </el-form-item>
       <el-form-item>

@@ -125,7 +125,7 @@ const onRegister = async () => {
     })
   }
   const res = await register(registerUser)
-  console.log(res)
+
   if(res.status === 200 || res.status === 201) {
     ElMessage({
       type: 'success',
@@ -137,7 +137,7 @@ const onRegister = async () => {
   } else {
     ElMessage({
       type: 'error',
-      message: res.data.data || '系统繁忙请稍后再试'
+      message: res.data.data.message || '系统繁忙请稍后再试'
     })
   }
 }

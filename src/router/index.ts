@@ -18,7 +18,7 @@ const router = createRouter({
     },
     {
       path: '/update_password',
-      name: 'updatepassword',
+      name: 'updatePassword',
       component: UpdatePassword
     },
     {

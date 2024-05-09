@@ -1,5 +1,6 @@
 import axios from "axios";
 import type { registerUserType } from '../views/RegisterView.vue';
+import type { UpdatePasswordUserType } from '../views/UpdatePassword.vue';
 
 
 const axiosInstance = axios.create({
@@ -33,4 +34,8 @@ export async function registerCaptcha (email: string) {
             address: email
         }
     })
-    }
+}
+
+export async function updatePassword(updatePasswordUser:UpdatePasswordUserType) {
+    return await axiosInstance.post('/user/update_password', updatePasswordUser)
+}
