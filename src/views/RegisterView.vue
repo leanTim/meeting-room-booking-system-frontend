@@ -73,7 +73,7 @@
       <el-row justify="end">
         <!-- <el-form-item> -->
           <el-col :span="10">
-            <div class="links">已有账号？去 <a href="">登录</a></div>
+            <div class="links">已有账号？去 <router-link to="/login">登录</router-link></div>
           </el-col>
         <!-- </el-form-item> -->
       </el-row>

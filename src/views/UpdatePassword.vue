@@ -79,7 +79,7 @@ import router from '@/router';
 import { ElMessage } from 'element-plus';
 import { reactive } from 'vue';
 
-export interface UpdatePasswordUserType {
+export interface updatePasswordUserType {
   username: string
   email: string
   captcha: string
@@ -87,7 +87,7 @@ export interface UpdatePasswordUserType {
   confirmPassword: string
 }
 
-const updatePasswordUser: UpdatePasswordUserType = reactive({
+const updatePasswordUser: updatePasswordUserType = reactive({
   username: '',
   email: '',
   captcha: '',
@@ -95,7 +95,7 @@ const updatePasswordUser: UpdatePasswordUserType = reactive({
   confirmPassword: ''
 })
 
-const onUpdatePassword = async (value: UpdatePasswordUserType) => {
+const onUpdatePassword = async (value: updatePasswordUserType) => {
   if(updatePasswordUser.password !== updatePasswordUser.confirmPassword) {
     return ElMessage({
       type: 'error',

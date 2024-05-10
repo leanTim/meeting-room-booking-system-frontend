@@ -37,6 +37,7 @@
 
 <script setup lang="ts">
 import { login } from '@/interface/interfaces';
+import router from '@/router';
 import { ElMessage } from 'element-plus';
 import { reactive } from 'vue';
 
@@ -60,7 +61,10 @@ const onSubmit = async function () {
 
     localStorage.setItem('access_token', data.accessToken)
     localStorage.setItem('refresh_token', data.refreshToken)
-    localStorage.setItem('userInfo', data.userInfo)
+    localStorage.setItem('userInfo', JSON.stringify(data.userInfo))
+    setTimeout(() => {
+      router.push('/')
+    }, 1500)
   } else {
     ElMessage({
     type: 'error',

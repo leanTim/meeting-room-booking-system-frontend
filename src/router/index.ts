@@ -2,10 +2,28 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '@/views/LoginView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import UpdatePassword from '@/views/UpdatePassword.vue'
+import Main from '@/views/Main.vue'
+import UpdateUserInfo from '@/components/UpdateUserInfo.vue'
+import Test from '@/components/Test.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    {
+      path: '/',
+      component: Main,
+      children: [
+        {
+          name: 'updateInfo',
+          path: 'update_info',
+          component: UpdateUserInfo
+        },{
+          name: 'bbb',
+          path: 'bbb',
+          component: Test
+        }
+      ]
+    },
     {
       path:'/login',
       name: 'login',
