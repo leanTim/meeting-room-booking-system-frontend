@@ -7,18 +7,19 @@
             >
 
             <el-form-item 
+                label="头像"
+            >
+                <HeadPicUpload
+                    :headPic="userInfo.headPic"
+                    @update-pic="updatePic"
+                ></HeadPicUpload>
+            </el-form-item>
+
+            <el-form-item 
                 label="昵称："   
             >
                 <el-input 
                 v-model="userInfo.nickName"
-                ></el-input>
-            </el-form-item>
-
-            <el-form-item 
-                label="头像"
-            >
-                <el-input 
-                v-model="userInfo.headPic"
                 ></el-input>
             </el-form-item>
 
@@ -64,6 +65,8 @@
 import { getUserInfo, updateUserInfo } from '@/interface/interfaces';
 import { ElMessage } from 'element-plus';
 import { onMounted, reactive } from 'vue';
+import HeadPicUpload from './HeadPicUpload.vue';
+
 
 export interface updateUserInfoType {
     username: string
@@ -89,17 +92,23 @@ const getInfo = async function () {
     const res = await getUserInfo()
     const data = res.data.data
 
-    userInfo.nickName = data.nickName
+    userInfo.username = data.username
+    userInfo.nickName = data.nickName || ''
     userInfo.headPic = data.headPic || ''
     userInfo.email = data.email || ''
-
+    // console.log(userInfo)
     return res
+}
+
+function updatePic(url: string) {
+    console.log(url, '-------------url---------')
+    userInfo.headPic = url
 }
 
 async function onUpdateUserInfo (data: updateUserInfoType) {
     const res = await updateUserInfo(data)
     
-    console.log(res)
+    // console.log(res)
     if(res.status ===200 || res.status === 201) {
         const {message: msg, data} = res.data
 
