@@ -6,22 +6,35 @@
                 <el-icon size="30"><User /></el-icon>
             </router-link>
         </header>
-        <main>
-            <router-view></router-view>
-        </main>
+        <div class="main">
+            <el-row>
+                <el-col 
+                    :span="6"
+                    class="menu"
+                >
+                    <ManageMenu />
+                </el-col>
+                <el-col 
+                    :span="18"
+                    class="content"
+                >
+                    <router-view></router-view>
+                </el-col>
+            </el-row>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import ManageMenu from '@/components/ManageMenu.vue';
 
+ManageMenu
 </script>
 
 <style scoped>
 #index-container{
     height: 100vh;
     width: 90vw;
-    display: flex;
-    flex-direction: column;
 }
 #index-container .header {
     box-sizing: content-box;
@@ -37,9 +50,11 @@
     margin: 0;
 }
 main {
-    height: calc(100% - 200px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px 30px 20px 30px;
+}
+.el-col {
+    padding-top: 20px;
 }
 </style>

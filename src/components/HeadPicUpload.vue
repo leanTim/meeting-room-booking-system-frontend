@@ -1,6 +1,4 @@
 <template>
-    {{ headPic }}
-    {{ picUrl }}
     <div id="upload-component-container">
         <el-upload class="avatar-uploader" action="http://localhost:3001/user/upload"
             :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
@@ -36,7 +34,6 @@ const handleAvatarSuccess: UploadProps['onSuccess'] = (
     emit('update-pic', imageUrl.value)
 }
 const beforeAvatarUpload: UploadProps['beforeUpload'] = (rawFile) => {
-    // console.log(rawFile)
     if (rawFile.type !== 'image/png') {
         ElMessage.error('Avatar picture must be JPG format!')
         return false

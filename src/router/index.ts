@@ -5,6 +5,10 @@ import UpdatePassword from '@/views/UpdatePassword.vue'
 import Main from '@/views/Main.vue'
 import UpdateUserInfo from '@/components/UpdateUserInfo.vue'
 import Test from '@/components/Test.vue'
+import BookingManage from '@/components/BookingManage.vue'
+import MeetingRoomManage from '@/components/MeetingRoomManage.vue'
+import UserManage from '@/components/UserManage.vue'
+import Statistics from '@/components/Statistics.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,13 +18,25 @@ const router = createRouter({
       component: Main,
       children: [
         {
-          name: 'updateInfo',
           path: 'update_info',
+          name: 'updateInfo',
           component: UpdateUserInfo
         },{
-          name: 'bbb',
-          path: 'bbb',
-          component: Test
+          path: 'booking_manage',
+          name: 'bookingManage',
+          component: BookingManage
+        },{
+          path: 'meeting_room_manage',
+          name: 'meetingRoomManage',
+          component: MeetingRoomManage
+        },{
+          path: 'user_manage',
+          name: 'userManage',
+          component: UserManage
+        },{
+          path: 'statistics',
+          name: 'statictics',
+          component: Statistics
         }
       ]
     },
