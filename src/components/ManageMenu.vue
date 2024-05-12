@@ -3,7 +3,7 @@
         <el-radio-button :value="false">展开</el-radio-button>
         <el-radio-button :value="true">折叠</el-radio-button>
     </el-radio-group>
-    <el-menu default-active="2" class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen"
+    <el-menu default-active="1" class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen"
         @close="handleClose">
         <el-menu-item index="1">
             <el-icon><UserFilled /></el-icon>

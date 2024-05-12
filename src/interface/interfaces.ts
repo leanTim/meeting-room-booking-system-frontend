@@ -104,3 +104,11 @@ export async function getUserList(username:string, nickName: string, email: stri
         }
     })
 }
+
+export async function freezeUser(id: number) {
+    return await axiosInstance.get('/user/freeze', {
+        params: {
+            id
+        }
+    })
+}
