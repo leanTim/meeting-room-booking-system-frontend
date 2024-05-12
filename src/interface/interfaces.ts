@@ -92,3 +92,15 @@ export async function getUserInfo() {
 export async function updateUserInfo(data: updateUserInfoType) {
     return await axiosInstance.post('/user/update', data)
 }
+
+export async function getUserList(username:string, nickName: string, email: string, pageNo: number, pageSize: number) {
+    return await axiosInstance.get('/user/list', {
+        params: {
+            username,
+            nickName,
+            email,
+            pageNo,
+            pageSize
+        }
+    })
+}
