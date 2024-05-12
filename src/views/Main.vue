@@ -1,7 +1,9 @@
 <template>
     <div id="index-container">
         <header class="header">
-            <h1>会议室预定系统</h1>
+            <router-link to="/">
+                <h1>会议室预定系统</h1>
+            </router-link>
             <router-link to="update_info">
                 <el-icon size="30"><User /></el-icon>
             </router-link>
@@ -27,8 +29,6 @@
 
 <script setup lang="ts">
 import ManageMenu from '@/components/ManageMenu.vue';
-
-ManageMenu
 </script>
 
 <style scoped>

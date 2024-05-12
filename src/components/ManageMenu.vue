@@ -1,54 +1,44 @@
 <template>
-    <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
-        <el-radio-button :value="false">展开</el-radio-button>
-        <el-radio-button :value="true">折叠</el-radio-button>
-    </el-radio-group>
-    <el-menu default-active="1" class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen"
-        @close="handleClose">
-        <el-menu-item index="1">
+    <el-menu 
+        class="el-menu-vertical-demo" 
+        :collapse="isCollapse" 
+        @open="handleOpen"
+        @close="handleClose"
+        router
+    >
+        <el-menu-item index="update_info">
             <el-icon><UserFilled /></el-icon>
-            <template #title>
-                <router-link to="update_info">个人信息</router-link>
-            </template>
+            个人信息
         </el-menu-item>
-        <el-menu-item index="2">
+        <el-menu-item index="meeting_room_manage">
             <el-icon><Menu /></el-icon>
-            <template #title>
-                <router-link to="meeting_room_manage"> 会议室管理</router-link>
-            </template>
+            会议室管理
         </el-menu-item>
-        <el-menu-item index="3">
+        <el-menu-item index="booking_manage">
             <el-icon><Operation /></el-icon>
-            <template #title>
-                <router-link to="booking_manage">预定管理</router-link>
-            </template>
+            预定管理
         </el-menu-item>
-        <el-menu-item index="4">
+        <el-menu-item index="user_manage">
             <el-icon><Filter /></el-icon>
-            <template #title>
-                <router-link to="user_manage">用户管理</router-link>
-            </template>
+            用户管理
         </el-menu-item>
-        <el-menu-item index="5">
-            <el-icon>
-                <setting />
-            </el-icon>
-            <template #title>
-                <router-link to="statistics">统计</router-link>
-            </template>
+        <el-menu-item index="statistics">
+            <el-icon><setting /></el-icon>
+            统计
         </el-menu-item>
     </el-menu>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import router from '../router/index';
 
 const isCollapse = ref(false)
 const handleOpen = (key: string, keyPath: string[]) => {
-    // console.log(key, keyPath)
+    console.log(key, keyPath, 'open')
 }
 const handleClose = (key: string, keyPath: string[]) => {
-    // console.log(key, keyPath)
+    console.log(key, keyPath, 'close')
 }
 </script>
 
