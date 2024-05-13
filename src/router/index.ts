@@ -23,7 +23,7 @@ const router = createRouter({
         },{
           path: 'booking_manage',
           name: 'bookingManage',
-          component: BookingManage
+          component: BookingManage,
         },{
           path: 'meeting_room_manage',
           name: 'meetingRoomManage',

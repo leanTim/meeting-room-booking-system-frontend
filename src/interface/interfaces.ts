@@ -2,6 +2,7 @@ import axios, { type AxiosRequestConfig } from "axios";
 import type { registerUserType } from '../views/RegisterView.vue';
 import type { updatePasswordUserType } from '../views/UpdatePassword.vue';
 import type { updateUserInfoType } from '../components/UpdateUserInfo.vue';
+import type { CreateRoom } from "@/components/MeetingRoomManage.vue";
 
 
 const axiosInstance = axios.create({
@@ -111,4 +112,30 @@ export async function freezeUser(id: number) {
             id
         }
     })
+}
+
+export async function getMeetingRoomList(
+    pageNo: number,
+    pageSize: number,
+    capacity: number | undefined,
+    name: string,
+    equipment: string,
+) {
+    return await axiosInstance.get('/meeting-room/list', {
+        params: {
+            pageNo,
+            pageSize,
+            capacity,
+            name,
+            equipment,
+        }
+    })
+}
+
+export async function deleteMeetingroom(id: number) {
+    return await axiosInstance.delete('/meeting-room/'+ id)
+}
+
+export async function createMeetingRoom(createRoom: CreateRoom) {
+    return await axiosInstance.post('/meeting-room/create', createRoom)
 }

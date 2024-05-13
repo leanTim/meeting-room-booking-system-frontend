@@ -14,13 +14,16 @@
                     :span="6"
                     class="menu"
                 >
-                    <ManageMenu />
+                    <ManageMenu
+                        :route-path="setDefaultActiveMenu"
+                    ></ManageMenu>
                 </el-col>
                 <el-col 
                     :span="18"
                     class="content"
                 >
-                    <router-view></router-view>
+                    <router-view 
+                    ></router-view>
                 </el-col>
             </el-row>
         </div>
@@ -29,6 +32,11 @@
 
 <script setup lang="ts">
 import ManageMenu from '@/components/ManageMenu.vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute()
+
+const setDefaultActiveMenu = route.path
 </script>
 
 <style scoped>

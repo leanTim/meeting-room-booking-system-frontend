@@ -99,11 +99,11 @@ async function onFreezeUser(id:number) {
 
     if(res.status === 200 || res.status === 201) {
         ElMessage.success('冻结用户成功')
-        // 重新搜索触发页面数据刷新
-        searchUser(formInline)
     }else {
         ElMessage.error(res.data.data || '系统繁忙，请稍后再试')
     }
+    // 重新搜索触发页面数据刷新
+    searchUser(formInline)
 }
 
 const searchUser = async function(value: SearchUser) {
@@ -128,10 +128,6 @@ onMounted(async () => {
 const onSubmit = () => {
     searchUser(formInline)
 }
-const handleClick = () => {
-    console.log('click')
-}
-
 
 </script>
 

@@ -2,9 +2,8 @@
     <el-menu 
         class="el-menu-vertical-demo" 
         :collapse="isCollapse" 
-        @open="handleOpen"
-        @close="handleClose"
         router
+        :default-active="props.routePath.substring(1)"
     >
         <el-menu-item index="update_info">
             <el-icon><UserFilled /></el-icon>
@@ -31,15 +30,10 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import router from '../router/index';
+
+const props = defineProps(['routePath'])
 
 const isCollapse = ref(false)
-const handleOpen = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath, 'open')
-}
-const handleClose = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath, 'close')
-}
 </script>
 
 <style>

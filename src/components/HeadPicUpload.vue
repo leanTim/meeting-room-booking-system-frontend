@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 
-import { computed, ref, toRef } from 'vue'
+import { computed, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { Plus } from '@element-plus/icons-vue'
 import type { UploadProps } from 'element-plus'
@@ -23,7 +23,6 @@ const props = defineProps(['headPic'])
 const emit = defineEmits(['update-pic'])
 
 const imageUrl = ref(props.headPic)
-console.log(imageUrl.value)
 const picUrl = computed(() => `http://localhost:3001/${props.headPic}`)
 
 const handleAvatarSuccess: UploadProps['onSuccess'] = (
