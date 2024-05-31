@@ -3,7 +3,8 @@ import type { registerUserType } from '../views/RegisterView.vue';
 import type { updatePasswordUserType } from '../views/UpdatePassword.vue';
 import type { updateUserInfoType } from '../components/UpdateUserInfo.vue';
 import type { CreateRoom } from "@/components/MeetingRoomManage.vue";
-
+import { ElMessage } from "element-plus";
+import router from "@/router";
 
 const axiosInstance = axios.create({
     baseURL: 'http://localhost:3001/',
@@ -42,7 +43,8 @@ axiosInstance.interceptors.response.use(
             if(res.status === 200) {
                 return await axiosInstance(config)
             } else {
-                alert(' 登录过期，请重新登录')
+                ElMessage.error('登录过期，请重新登录')
+                router.push('/login')
                 return Promise.reject(res.data)
             }
         } else {

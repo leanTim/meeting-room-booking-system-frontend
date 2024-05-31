@@ -65,4 +65,7 @@ main {
 .el-col {
     padding-top: 20px;
 }
+.el-col-18 {
+    overflow: auto;
+}
 </style>
